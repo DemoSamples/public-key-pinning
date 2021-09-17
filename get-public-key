@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$#" -ne 1 ]]; then
+	echo "No hostname provided"
+    exit 1
+fi
+
+./bin/get-public-key-mac-terminal $1
+
+echo "--------------openssl---------------"
+openssl s_client -servername $1  -connect $1:443 | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+echo "-------------------------------"
+exit 1
+

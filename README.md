@@ -34,6 +34,12 @@ This demo project contains number of sub projet demo to demonestrate how to gene
 
 Here `cert.pem` is the actual SSL Certificate of out interest and will use for node server
 
+Few other userful commands 
+- Get validity date from ssl certificate
+> openssl x509 -in cert.pem -noout -enddate
+
+<br><br>
+
 **Very important Note**
 We need to make sure we securely keep the private key `key.pem`. Same key will be needed to generate new SSL certificate so that the public key will remain same even after certificate renew. Other wise the `public key` that we get during TLS connection from client to server will be different and we may need to change this new `public-key`  in all the other application where we will be implementing  public key pinning.
 
@@ -197,3 +203,7 @@ If you are in development enviroment and using localhost as host then it is requ
 But if you are using in production version then following will also works.
 > rejectUnauthorized: true, // for production use
 
+
+## Commandline syntax to use get public key
+
+>  ./get-public-key api.zakipointhealth.com

@@ -32,7 +32,7 @@ This demo project contains number of sub projet demo to demonestrate how to gene
 > openssl x509 -req-days 365 -in csr.pem -signkey key.pem -out cert.pem
 
 
-Here `cert.pem` is the actual SSL Certificate of out interest and will use for node server
+Here `cert.pem` is the actual SSL Certificate of our interest and will use for node server
 
 Few other userful commands 
 - Get validity date from ssl certificate
